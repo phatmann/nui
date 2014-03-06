@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NUIEditor.h"
 
 @interface ViewController ()<UITextFieldDelegate>
 
@@ -24,6 +25,11 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (IBAction)editButtonWasTapped:(id)sender
+{
+    [self presentViewController:[NUIEditor new] animated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {

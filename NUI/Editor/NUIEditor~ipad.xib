@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NUIEditor">
+            <connections>
+                <outlet property="deleteButton" destination="XK0-mo-J5d" id="5yE-Zu-g2N"/>
+                <outlet property="doneButton" destination="cVT-n3-dk8" id="ajj-g8-3r0"/>
+                <outlet property="mailButton" destination="FrT-ov-0cU" id="027-wf-t4Q"/>
+                <outlet property="navigationBarItem" destination="FTI-9W-zZC" id="vUa-3C-lKP"/>
+                <outlet property="resetButton" destination="Fqr-tF-JqN" id="pE3-Eb-ieU"/>
+                <outlet property="saveButton" destination="dHB-AM-uAH" id="Yv2-ax-fpT"/>
+                <outlet property="textView" destination="tZB-7C-1Nj" id="4o4-59-62p"/>
+                <outlet property="toolbar" destination="BOf-va-mcW" id="eRE-91-Ta3"/>
+                <outlet property="view" destination="2" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" id="Duq-RR-1LW">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                    <items>
+                        <navigationItem title="Title" id="FTI-9W-zZC" userLabel="Navigation Item">
+                            <barButtonItem key="rightBarButtonItem" systemItem="done" id="cVT-n3-dk8" userLabel="Done">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doneButtonWasTapped:" destination="-1" id="TwQ-cj-WCG"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                    </userDefinedRuntimeAttributes>
+                </navigationBar>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="tZB-7C-1Nj">
+                    <rect key="frame" x="0.0" y="44" width="768" height="916"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="cPq-au-61w"/>
+                    </connections>
+                </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="BOf-va-mcW">
+                    <rect key="frame" x="0.0" y="960" width="768" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="save" id="dHB-AM-uAH" userLabel="Save">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="saveButtonWasTapped:" destination="-1" id="Mdk-tI-mT4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Reset" id="Fqr-tF-JqN" userLabel="Reset">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="resetButtonWasTapped:" destination="-1" id="oHG-HA-0OP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="coM-fP-dTX" userLabel="Spacer"/>
+                        <barButtonItem systemItem="compose" id="FrT-ov-0cU" userLabel="Mail">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="mailButtonWasTapped:" destination="-1" id="trl-LI-ahI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="trash" id="XK0-mo-J5d" userLabel="Delete">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="deleteButtonWasTapped:" destination="-1" id="9Hc-Cn-GSU"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+                    </userDefinedRuntimeAttributes>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="none"/>
+            </userDefinedRuntimeAttributes>
+        </view>
+    </objects>
+</document>

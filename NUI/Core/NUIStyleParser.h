@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class NUIStyleSheet;
+
 @interface NUIStyleParser : NSObject
 
-- (NSMutableDictionary*)getStylesFromFile:(NSString*)content;
+- (NSMutableDictionary*)getStylesFromString:(NSString *)content;
+- (NSMutableDictionary*)getStylesFromBundle:(NSString*)name;
 - (NSMutableDictionary*)getStylesFromPath:(NSString*)path;
 
 @end

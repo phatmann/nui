@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.1'
 
   s.source_files = 'NUI', 'NUI/**/*.{h,m}'
-  s.resources    = "NUI/Resources/*.png", "NUI/**/*.nss"
+  s.resources    = "NUI/Resources/*.png", "NUI/**/*.nss", "NUI/Editor/*.xib"
   s.requires_arc = true
   s.frameworks   = [ "UIKit", "CoreGraphics","QuartzCore", "CoreImage" ]
   

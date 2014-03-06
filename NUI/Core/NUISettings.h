@@ -29,11 +29,17 @@
 + (void)init;
 + (void)initWithStylesheet:(NSString*)name;
 + (void)appendStylesheet:(NSString*)name;
-+ (void)loadStylesheetByPath:(NSString*)path;
++ (BOOL)loadStylesheetByPath:(NSString*)path;
++ (BOOL)loadStylesheetFromString:(NSString*)content;
 + (BOOL)reloadStylesheetsOnOrientationChange:(UIInterfaceOrientation)orientation;
 + (BOOL)autoUpdateIsEnabled;
 + (NSString*)autoUpdatePath;
 + (void)setAutoUpdatePath:(NSString*)path;
++ (NSString *)stylesheetName;
++ (NSString *)stylesheetsDirectory;
++ (NSString *)stylesheetPath;
++ (NSString *)stylesheetFilePath;
++ (NSString *)stylesheetBundlePath;
 + (BOOL)hasProperty:(NSString*)property withClass:(NSString*)className;
 + (BOOL)hasFontPropertiesWithClass:(NSString*)className;
 + (id)get:(NSString*)property withClass:(NSString*)className;

@@ -37,6 +37,7 @@
 @property(nonatomic)BOOL rerenderOnOrientationChange;
 
 + (void)rerender;
++ (void)rerenderImmediately;
 
 + (void)renderBarButtonItem:(UIBarButtonItem*)item;
 + (void)renderBarButtonItem:(UIBarButtonItem*)item withClass:(NSString*)className;
@@ -112,5 +113,6 @@
 + (void)removeOrientationDidChangeObserver:(id)observer;
 
 + (void)setRerenderOnOrientationChange:(BOOL)rerender;
++ (void)stylesheetFileChanged:(NSString *)path;
 
 @end

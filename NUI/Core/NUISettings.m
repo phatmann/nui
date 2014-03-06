@@ -30,9 +30,67 @@ static NUISettings *instance = nil;
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     instance.stylesheetOrientation = [self stylesheetOrientationFromInterfaceOrientation:orientation];
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    instance.styles = [parser getStylesFromFile:name];
+    instance.styles = [parser getStylesFromPath:[self stylesheetPath]];
     
     [NUIAppearance init];
+}
+
++ (BOOL)loadStylesheetFromString:(NSString*)content
+{
+    instance = [self getInstance];
+    NUIStyleParser *parser = [[NUIStyleParser alloc] init];
+    instance.styles = [parser getStylesFromString:content];
+    return instance.styles != nil;
+}
+
++ (BOOL)loadStylesheetByPath:(NSString*)path
+{
+    instance = [self getInstance];
+    NUIStyleParser *parser = [[NUIStyleParser alloc] init];
+    instance.styles = [parser getStylesFromPath:path];
+    return instance.styles != nil;
+}
+
++ (NSString *)stylesheetPath
+{
+    NSString *path = [self stylesheetFilePath];
+    
+    BOOL isDirectory;
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDirectory];
+    
+    if (!exists || isDirectory)
+        path = [self stylesheetBundlePath];
+    
+    return path;
+}
+
++ (NSString *)stylesheetName
+{
+    instance = [self getInstance];
+    return instance.stylesheetName;
+}
+
++ (NSString *)stylesheetsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [NSString pathWithComponents:@[documentsDirectory, @"stylesheets"]];
+}
+
++ (NSString *)stylesheetFilePath
+{
+    NSString *versionNumber = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *name          = [NSString stringWithFormat:@"%@-%@.nss", [self stylesheetName], versionNumber];
+    
+    return [NSString pathWithComponents:@[[self stylesheetsDirectory], name]];
+}
+
++ (NSString *)stylesheetBundlePath
+{
+    instance = [self getInstance];
+    NSString *path = [[NSBundle mainBundle] pathForResource:instance.stylesheetName ofType:@"nss"];
+    NSAssert1(path != nil, @"Stylesheet bundle \"%@\" not found", instance.stylesheetName);
+    return path;
 }
 
 + (void)appendStylesheet:(NSString *)name
@@ -44,7 +102,7 @@ static NUISettings *instance = nil;
     
     [instance.additionalStylesheetNames addObject:name];
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    [instance appendStyles:[parser getStylesFromFile:name]];
+    [instance appendStyles:[parser getStylesFromBundle:name]];
 }
 
 - (void)appendStyles:(NSMutableDictionary*)newStyles
@@ -55,7 +113,7 @@ static NUISettings *instance = nil;
             styles[key] = style;
             continue;
         }
-    
+        
         for (NSString *propertyKey in style) {
             id propertyValue = style[propertyKey];
             styles[key][propertyKey] = propertyValue;
@@ -63,21 +121,14 @@ static NUISettings *instance = nil;
     }
 }
 
-+ (void)loadStylesheetByPath:(NSString*)path
-{
-    instance = [self getInstance];
-    NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    instance.styles = [parser getStylesFromPath:path];
-}
-
 + (void)reloadStylesheets
 {
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    instance.styles = [parser getStylesFromFile:instance.stylesheetName];
+    instance.styles = [parser getStylesFromBundle:instance.stylesheetName];
     
     if (instance.additionalStylesheetNames) {
         for (NSString *name in instance.additionalStylesheetNames) {
-            [instance appendStyles:[parser getStylesFromFile:name]];
+            [instance appendStyles:[parser getStylesFromBundle:name]];
         }
     }
 }

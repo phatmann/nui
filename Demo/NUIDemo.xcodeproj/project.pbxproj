@@ -87,6 +87,10 @@
 		EAB69D48188625E900358420 /* NUIStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB69D3A188625E900358420 /* NUIStyleSheet.m */; };
 		EAB69D4A188625E900358420 /* NUITokeniserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB69D3E188625E900358420 /* NUITokeniserDelegate.m */; };
 		EAB69D4C188625E900358420 /* NUIVariableToken.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB69D42188625E900358420 /* NUIVariableToken.m */; };
+		EAB7769A18C7FFA200AD5B56 /* NUIEditor~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB7769918C7FFA200AD5B56 /* NUIEditor~iphone.xib */; };
+		EAB7769F18C866BF00AD5B56 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB7769E18C866BF00AD5B56 /* MessageUI.framework */; };
+		EAB8458118C7CAD500F6E1E9 /* NUIEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8457F18C7CAD500F6E1E9 /* NUIEditor.m */; };
+		EAB8458218C7CAD500F6E1E9 /* NUIEditor~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB8458018C7CAD500F6E1E9 /* NUIEditor~ipad.xib */; };
 		EADA4809188DD9080060F8BC /* NUIMediaBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = EADA4808188DD9080060F8BC /* NUIMediaBlock.m */; };
 		EADA480C188DE0E00060F8BC /* NUIMediaOptionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EADA480B188DE0E00060F8BC /* NUIMediaOptionSet.m */; };
 		EADA480F188F10270060F8BC /* NUIStyleSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EADA480E188F10270060F8BC /* NUIStyleSheetItem.m */; };
@@ -239,6 +243,11 @@
 		EAB69D3E188625E900358420 /* NUITokeniserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NUITokeniserDelegate.m; path = Parser/NUITokeniserDelegate.m; sourceTree = "<group>"; };
 		EAB69D41188625E900358420 /* NUIVariableToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUIVariableToken.h; path = Parser/NUIVariableToken.h; sourceTree = "<group>"; };
 		EAB69D42188625E900358420 /* NUIVariableToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NUIVariableToken.m; path = Parser/NUIVariableToken.m; sourceTree = "<group>"; };
+		EAB7769918C7FFA200AD5B56 /* NUIEditor~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "NUIEditor~iphone.xib"; sourceTree = "<group>"; };
+		EAB7769E18C866BF00AD5B56 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EAB8457E18C7CAD500F6E1E9 /* NUIEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIEditor.h; sourceTree = "<group>"; };
+		EAB8457F18C7CAD500F6E1E9 /* NUIEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIEditor.m; sourceTree = "<group>"; };
+		EAB8458018C7CAD500F6E1E9 /* NUIEditor~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "NUIEditor~ipad.xib"; sourceTree = "<group>"; };
 		EADA4807188DD8FF0060F8BC /* NUIMediaBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUIMediaBlock.h; path = Parser/NUIMediaBlock.h; sourceTree = "<group>"; };
 		EADA4808188DD9080060F8BC /* NUIMediaBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NUIMediaBlock.m; path = Parser/NUIMediaBlock.m; sourceTree = "<group>"; };
 		EADA480A188DE0D80060F8BC /* NUIMediaOptionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NUIMediaOptionSet.h; path = Parser/NUIMediaOptionSet.h; sourceTree = "<group>"; };
@@ -259,6 +268,7 @@
 				4A0B8636165EE59A005B5756 /* UIKit.framework in Frameworks */,
 				4A0B8638165EE59A005B5756 /* Foundation.framework in Frameworks */,
 				4A0B863A165EE59A005B5756 /* CoreGraphics.framework in Frameworks */,
+				EAB7769F18C866BF00AD5B56 /* MessageUI.framework in Frameworks */,
 				41A0DE98FD464C508748F886 /* libPods-NUIDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +297,7 @@
 		4A0B8634165EE59A005B5756 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAB7769E18C866BF00AD5B56 /* MessageUI.framework */,
 				4A4FC62016629C4D0058031B /* CoreImage.framework */,
 				4A0B8680165EE917005B5756 /* QuartzCore.framework */,
 				4A0B8635165EE59A005B5756 /* UIKit.framework */,
@@ -353,6 +364,7 @@
 		89B940211671418100850A9A /* NUI */ = {
 			isa = PBXGroup;
 			children = (
+				EAB8457D18C7CAD500F6E1E9 /* Editor */,
 				89B940221671418100850A9A /* Core */,
 				89B940461671418100850A9A /* NUIStyle.nss */,
 				89B940471671418100850A9A /* Resources */,
@@ -522,6 +534,17 @@
 			name = Parser;
 			sourceTree = "<group>";
 		};
+		EAB8457D18C7CAD500F6E1E9 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				EAB8457E18C7CAD500F6E1E9 /* NUIEditor.h */,
+				EAB8457F18C7CAD500F6E1E9 /* NUIEditor.m */,
+				EAB8458018C7CAD500F6E1E9 /* NUIEditor~ipad.xib */,
+				EAB7769918C7FFA200AD5B56 /* NUIEditor~iphone.xib */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,10 +598,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB8458218C7CAD500F6E1E9 /* NUIEditor~ipad.xib in Resources */,
 				4A0B8640165EE59A005B5756 /* InfoPlist.strings in Resources */,
 				4AAAFE7C166FD32600A0D34D /* Default-568h@2x.png in Resources */,
 				89B940811671418200850A9A /* NUIStyle.nss in Resources */,
 				89B940841671418200850A9A /* NUIViewBackground.png in Resources */,
+				EAB7769A18C7FFA200AD5B56 /* NUIEditor~iphone.xib in Resources */,
 				4A9965E5169FB56800DAA38A /* Blue.NUI.nss in Resources */,
 				4A9965E6169FB56800DAA38A /* Default.NUI.nss in Resources */,
 				4A9965E7169FB56800DAA38A /* Googolplex.NUI.nss in Resources */,
@@ -685,6 +710,7 @@
 				D983DF1F169DC87800A3A180 /* NUISliderRenderer.m in Sources */,
 				4ADA71C616A0F15C00BDCF81 /* UISearchBar+NUI.m in Sources */,
 				4ADA71CA16A103CD00BDCF81 /* NUISearchBarRenderer.m in Sources */,
+				EAB8458118C7CAD500F6E1E9 /* NUIEditor.m in Sources */,
 				D8E7168116B8AF4400686854 /* NUIControlRenderer.m in Sources */,
 				D8E7168516B9980300686854 /* UIControl+NUI.m in Sources */,
 				4A38831116C7268000DB99C2 /* NUIWindowRenderer.m in Sources */,

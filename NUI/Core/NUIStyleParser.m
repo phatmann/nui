@@ -19,20 +19,27 @@
 
 @implementation NUIStyleParser
 
-- (NSMutableDictionary*)getStylesFromFile:(NSString*)fileName
+- (NSMutableDictionary*)getStylesFromString:(NSString *)content
 {
-    NSString* path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"nss"];
-    NSAssert1(path != nil, @"File \"%@\" does not exist", fileName);
-    NSString* content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NUIStyleSheet *styleSheet = [self parse:content];
+    
+    if (!styleSheet)
+        return nil;
+    
     return [self consolidateRuleSets:styleSheet];
+}
+
+- (NSMutableDictionary*)getStylesFromBundle:(NSString*)name
+{
+    NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:@"nss"];
+    NSAssert1(path != nil, @"File \"%@\" does not exist", name);
+    return [self getStylesFromPath:path];
 }
 
 - (NSMutableDictionary*)getStylesFromPath:(NSString*)path
 {
     NSString* content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NUIStyleSheet *styleSheet = [self parse:content];
-    return [self consolidateRuleSets:styleSheet];
+    return [self getStylesFromString:content];
 }
 
 - (NSMutableDictionary*)consolidateRuleSets:(NUIStyleSheet *)styleSheet

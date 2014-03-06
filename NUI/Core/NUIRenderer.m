@@ -265,9 +265,14 @@ static NUIRenderer *gInstance = nil;
 + (void)rerender
 {
     for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
-        UIView *rootView = [[window rootViewController] view];
-        [self rerenderView:rootView];
+        [self rerenderView:window];
     }
+}
+
++ (void)rerenderImmediately
+{
+    [NUIRenderer rerender];
+    //[CATransaction flush];
 }
 
 + (void)rerenderView:(UIView *)view
@@ -275,8 +280,8 @@ static NUIRenderer *gInstance = nil;
     for (UIView *subview in view.subviews) {
         [self rerenderView:subview];
     }
-
-    if ([view respondsToSelector:@selector(applyNUI)]){
+    
+    if (view.nuiClass) {
         [view applyNUI];
     }
     
@@ -313,7 +318,7 @@ static NUIRenderer *gInstance = nil;
             if ([NUISettings autoUpdateIsEnabled]) {
                 [NUIFileMonitor watch:[NUISettings autoUpdatePath] withCallback:^(){
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self stylesheetFileChanged];
+                        [self stylesheetFileChanged:[NUISettings autoUpdatePath]];
                     });
                 }];
             }
@@ -332,11 +337,10 @@ static NUIRenderer *gInstance = nil;
         [NUIRenderer rerender];
 }
 
-+ (void)stylesheetFileChanged
++ (void)stylesheetFileChanged:(NSString *)path
 {
-    [NUISettings loadStylesheetByPath:[NUISettings autoUpdatePath]];
-    [NUIRenderer rerender];
-    [CATransaction flush];
+    [NUISettings loadStylesheetByPath:path];
+    [self rerenderImmediately];
 }
 
 @end
